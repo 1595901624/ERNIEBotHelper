@@ -7,6 +7,8 @@
 
 [GPT聚合版](https://github.com/1595901624/gpt-aggregated-edition) 正在开发中...届时该脚本将融入聚合版。
 
+#### 示例
+![](https://raw.githubusercontent.com/1595901624/ERNIEBotHelper/main/demo.PNG)
 
 目前不清楚百度添加水印的原因，如果截图+水印被不法分子搜集，可能泄露个人隐私信息。
 
