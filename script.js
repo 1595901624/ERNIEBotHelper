@@ -2,7 +2,7 @@
 // @name         文心一言去除水印（文心一言助手）
 // @namespace    http://tampermonkey.net/
 // @version      0.4
-// @description  去除文心一言页面的水印，支持去除3月20日更新的文心一言版本
+// @description  去除文心一言页面的水印，去除AI作图的水印、去除超时弹窗、头像改为默认头像
 // @author       我是小学生
 // @match        https://yiyan.baidu.com/*
 // @icon         https://nlp-eb.cdn.bcebos.com/logo/favicon.ico

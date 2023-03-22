@@ -3,7 +3,7 @@
 <img src="https://img.shields.io/badge/latest%20version-v0.0.3-blue.svg?style=flat" title="" alt="" data-align="inline">  ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)  ![](https://img.shields.io/badge/downloads-1,000+-brightgreen.svg?style=flat)
 
 #### 介绍
-文心一言一款油猴脚本，可以去除水印，去除超时弹窗。
+文心一言助手一款油猴脚本，去除文心一言页面的水印，去除AI作图的水印、去除超时弹窗、头像改为默认头像。
 
 目前不清楚百度添加水印的原因，如果截图+水印被不法分子搜集，可能泄露个人隐私信息。
 
