@@ -25,8 +25,8 @@
     // 创建一个MutationObserver实例
     const observer = new MutationObserver(function (mutations) {
         // 获取水印元素
-        let watermark = document.querySelector("div[id^='eb_']");
-        if (watermark != null && !watermark.classList.contains('ebhelper-hide')) {
+        let watermark = getElementByRegex(/^[\w\d]{8}-[\w\d]{4}-[\w\d]{4}-[\w\d]{4}-[\w\d]{12}$/);
+        if (watermark != null && watermark.classList != null && !watermark.classList.contains('ebhelper-hide')) {
             hideWatermark(watermark);
         }
 
@@ -89,4 +89,27 @@
             }
         });
     }
+
+    /**
+     * 正则匹配元素,获取第一个元素
+     * @param {*} pattern 
+     * @returns 
+     */
+    function getElementByRegex(pattern) {
+        let allElements = document.getElementsByTagName('div');
+        let result = "";
+
+        for (let i = 0; i < allElements.length; i++) {
+            let element = allElements[i];
+            let attr = element.getAttribute('id');
+            if (attr != null && pattern.test(attr)) {
+                result = element;
+                break;
+            }
+        }
+
+        return result;
+    }
+
+
 })();
