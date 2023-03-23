@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         文心一言去除水印（文心一言助手）
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      0.5
 // @description  去除文心一言页面的水印，去除AI作图的水印、去除超时弹窗、头像改为默认头像
 // @author       我是小学生
 // @match        https://yiyan.baidu.com/*
@@ -15,20 +15,27 @@
 (function () {
     'use strict';
 
-    const style = document.createElement('style');
-    style.innerHTML = `.ebhelper-hide { visibility: hidden !important; }`;
-    document.head.appendChild(style);
+    // 百度大大，不要再搞了，我只是想去个水印而已。
 
     // ai图片水印标记
     const aiImageWaterFlag = "x-bce-process=style/wm_ai";
 
-    // 创建一个MutationObserver实例
-    const observer = new MutationObserver(function (mutations) {
+    // 打开shadow-root
+    Element.prototype._attachShadow = Element.prototype.attachShadow;
+    Element.prototype.attachShadow = function () {
+        return this._attachShadow({ mode: "open" });
+    };
+
+    // 自己调整频次 感觉10毫秒比较友好
+    setInterval(deal, 10);
+
+    function deal() {
         // 获取水印元素
         let watermark = getElementByRegex(/^[\w\d]{8}-[\w\d]{4}-[\w\d]{4}-[\w\d]{4}-[\w\d]{12}$/);
         if (watermark != null && watermark.classList != null && !watermark.classList.contains('ebhelper-hide')) {
             hideWatermark(watermark);
         }
+        // Array.from(document.querySelectorAll('div')).filter(e => e.shadowRoot);
 
         // 获取弹窗的元素
         let timeoutDialog = document.querySelector("div[class='ant-modal-root']");
@@ -41,13 +48,7 @@
         if (allImage != null) {
             hideAIImageWatermark(allImage);
         }
-    });
-
-    // 开始观察document，并在节点添加或删除时检测变化
-    observer.observe(document, {
-        childList: true,
-        subtree: true
-    });
+    }
 
 
     /**
@@ -63,8 +64,11 @@
      * 隐藏水印
      */
     function hideWatermark(element) {
-        console.log("隐藏水印!");
-        element.classList.add('ebhelper-hide');
+        // console.log("隐藏水印!");
+        let shadows = element.shadowRoot.querySelectorAll('*');
+        for (let e of shadows) {
+            e.remove();
+        }
     }
 
     /**
