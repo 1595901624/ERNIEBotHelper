@@ -1,9 +1,11 @@
 # ERNIEBotHelper 文心一言助手
 
-<img src="https://img.shields.io/badge/latest%20version-v0.4-blue.svg?style=flat" title="" alt="" data-align="inline">  ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)  ![](https://img.shields.io/badge/downloads-3,000+-brightgreen.svg?style=flat)
+<img src="https://img.shields.io/badge/latest%20version-v0.6-blue.svg?style=flat" title="" alt="" data-align="inline">  ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)  ![](https://img.shields.io/badge/downloads-3,000+-brightgreen.svg?style=flat)
 
 #### 介绍
 文心一言助手一款油猴脚本，去除文心一言页面的水印，去除AI作图的水印、去除超时弹窗、头像改为默认头像。
+
+重要：0.6 版本是最后一次更新。
 
 [GPT聚合版](https://github.com/1595901624/gpt-aggregated-edition) 正在开发中...届时该脚本将融入聚合版。
 
